@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSysusersTable extends Migration
+class CreateSysmenusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateSysusersTable extends Migration
      */
     public function up()
     {
-        Schema::create('sysusers', function (Blueprint $table) {
+        Schema::create('sysmenus', function (Blueprint $table) {
             $table->id();
-            $table->string('uname')->unique();
-            $table->string('namalengkap');
-            $table->string('email');
-            $table->string('upass');
+			$table->string('namamenu');
+			$table->integer('sysmenus_id');
+			$table->string('linkmenu');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateSysusersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sysusers');
+        Schema::dropIfExists('sysmenus');
     }
 }
